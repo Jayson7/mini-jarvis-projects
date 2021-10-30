@@ -16,7 +16,7 @@ def timer():
     Time = datetime.datetime.now().strftime("%I:%M:%S")
     speak(Time)
 
-timer()
+# date
 
 def date():
     year = int(datetime.datetime.now().year)
@@ -26,4 +26,13 @@ def date():
     speak(month)
     speak(day)
 
-date()
+# greetings
+
+def greeter():
+    speak("Hello Jayson")
+    speak("the current time is " + timer())  
+    speak( '  and the current date is ' + date())
+    speak( " i'm Jarvis, please tell me how i can help")
+
+
+greeter()
