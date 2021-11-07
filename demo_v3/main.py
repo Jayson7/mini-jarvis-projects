@@ -58,3 +58,18 @@ def sendEmail(to, content):
     server.sendmail('youremail@gmail.com', to, content)
     server.close()
  
+if __name__ == "__main__":
+    wishMe()
+    while True:
+    # if 1:
+        query = takeCommand().lower()
+ 
+        # Logic for executing tasks based on query
+        if 'wikipedia' in query:
+            speak('Searching Wikipedia...')
+            query = query.replace("wikipedia", "")
+            results = wikipedia.summary(query, sentences=2)
+            speak("According to Wikipedia")
+            print(results)
+            speak(results)
+ 
