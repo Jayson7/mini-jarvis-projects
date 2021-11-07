@@ -10,46 +10,47 @@ engine = pyttsx3.init("espeak")
 voices = engine.getProperty('voices')
 # print(voices[11].id)
 engine.setProperty('voice', voices[11].id)
-engine.say("hello jayson")
-engine.runAndWait()
+# engine.say("hello jayson")
+# engine.runAndWait()
  
-# def speak(audio):
-#     engine.say(audio)
-#     engine.runAndWait()
+def speak(audio):
+    engine.say(audio)
+    engine.runAndWait()
  
  
-# def wishMe():
-#     hour = int(datetime.datetime.now().hour)
-#     if hour>=0 and hour<12:
-#         speak("Good Morning!")
+def wishMe():
+    hour = int(datetime.datetime.now().hour)
+    if hour>=0 and hour<12:
+        speak("Good Morning!")
  
-#     elif hour>=12 and hour<18:
-#         speak("Good Afternoon!")   
+    elif hour>=12 and hour<18:
+        speak("Good Afternoon!")   
  
-#     else:
-#         speak("Good Evening!")  
+    else:
+        speak("Good Evening!")  
  
-#     speak("I am Jarvis Sir. Please tell me how may I help you")       
+    speak("I am Jarvis Sir. Please tell me how may I help you")       
+
+def takeCommand():
+    #It takes microphone input from the user and returns string output
  
-# def takeCommand():
-#     #It takes microphone input from the user and returns string output
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        r.pause_threshold = 1
+        r.adjust_for_ambient_noise(source)
+        audio = r.listen(source)
  
-#     r = sr.Recognizer()
-#     with sr.Microphone() as source:
-#         print("Listening...")
-#         r.pause_threshold = 1
-#         audio = r.listen(source)
+    try:
+        print("Recognizing...")    
+        query = r.recognize_google(audio, language='en-in')
+        print(f"User said: {query}\n")
  
-#     try:
-#         print("Recognizing...")    
-#         query = r.recognize_google(audio, language='en-in')
-#         print(f"User said: {query}\n")
- 
-#     except Exception as e:
-#         # print(e)    
-#         print("Say that again please...")  
-#         return "None"
-#     return query
+    except Exception as e:
+        # print(e)    
+        print("Say that again please...")  
+        return "None"
+    return query
  
 # def sendEmail(to, content):
 #     server = smtplib.SMTP('smtp.gmail.com', 587)
