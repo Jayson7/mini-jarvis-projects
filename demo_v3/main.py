@@ -97,3 +97,13 @@ if __name__ == "__main__":
             codePath = "C:\\Users\\Haris\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
             os.startfile(codePath)
  
+        elif 'email to friend' in query:
+            try:
+                speak("What should I say?")
+                content = takeCommand()
+                to = "yourfriendEmail@gmail.com"   
+                sendEmail(to, content)
+                speak("Email has been sent!")
+            except Exception as e:
+                print(e)
+                speak("Sorry. I am not able to send this email") 
