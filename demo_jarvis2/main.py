@@ -49,6 +49,7 @@ def greeter():
         speak("good morning jayson, why are you not asleep, how may i help")
 
     speak( " i'm Jarvis, please tell me how i can help")
+greeter()
 
 def command():
     
@@ -66,6 +67,8 @@ def command():
             speak("say that again please")
             return "None"
         return query 
+
+
 
 command()
 
