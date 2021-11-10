@@ -83,11 +83,13 @@ if __name__ == "__main__":
 
         elif 'open youtube' in query:
             webbrowser.open("youtube.com")
+            speak("youtube is open now")
          
         elif 'search'  in query:
             statement = query.replace("search", "")
             webbrowser.open_new_tab(statement)
             time.sleep(10)
+            
         elif 'open google' in query:
             webbrowser.open("google.com")
         
