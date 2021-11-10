@@ -4,7 +4,7 @@ import datetime
 import wikipedia #pip install wikipedia
 import webbrowser
 import pyjokes
-
+import time
 import os
 import smtplib
 import pywhatkit
@@ -80,9 +80,14 @@ if __name__ == "__main__":
             song = query.replace('play', '')
             speak('playing ' + song)
             pywhatkit.playonyt(song)
+
         elif 'open youtube' in query:
             webbrowser.open("youtube.com")
- 
+         
+        elif 'search'  in query:
+            statement = query.replace("search", "")
+            webbrowser.open_new_tab(statement)
+            time.sleep(10)
         elif 'open google' in query:
             webbrowser.open("google.com")
         
