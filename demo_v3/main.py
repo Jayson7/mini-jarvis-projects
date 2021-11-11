@@ -103,10 +103,10 @@ if __name__ == "__main__":
         elif 'joke' in query:
             speak("okay sir but you must laugh")
             speak(pyjokes.get_joke())
-            
-        elif "log off" in statement or "hibernate" in statement:
-            speak("Ok , your pc will hibernate")
-            subprocess.call(["shutdown", "/h"])
+
+        # elif "log off" in query or "hibernate" in query:
+        #     speak("Ok , your pc will hibernate")
+        #     subprocess.call(["shutdown", "/h"])
 
 #  /////
         elif 'open stackoverflow' in query:
