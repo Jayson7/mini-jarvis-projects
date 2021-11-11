@@ -5,6 +5,7 @@ import wikipedia #pip install wikipedia
 import webbrowser
 import pyjokes
 import time
+import subprocess
 import os
 import smtplib
 import pywhatkit
@@ -89,7 +90,7 @@ if __name__ == "__main__":
             statement = query.replace("search", "")
             webbrowser.open_new_tab(statement)
             time.sleep(10)
-            
+
         elif 'open google' in query:
             webbrowser.open("google.com")
         
@@ -102,6 +103,10 @@ if __name__ == "__main__":
         elif 'joke' in query:
             speak("okay sir but you must laugh")
             speak(pyjokes.get_joke())
+            
+        elif "log off" in statement or "hibernate" in statement:
+            speak("Ok , your pc will hibernate")
+            subprocess.call(["shutdown", "/h"])
 
 #  /////
         elif 'open stackoverflow' in query:
